@@ -1,0 +1,24 @@
+{
+  "name": "bbq-pi",
+  "version": "1.0.0",
+  "description": "A BBQ temperature controller and meat temperature probe software suite for Raspberry Pi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eenewbsauce/bbq-pi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eenewbsauce/bbq-pi/issues"
+  },
+  "homepage": "https://github.com/eenewbsauce/bbq-pi#readme",
+  "dependencies": {
+    "onoff": "^1.1.3"
+  }
+}
