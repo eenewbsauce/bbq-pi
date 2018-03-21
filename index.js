@@ -1,3 +1,5 @@
+'use strict';
+
 const Gpio = require('onoff').Gpio;
 
 const probe = new Gpio(5, 'low');
