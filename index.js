@@ -2,10 +2,11 @@ const Gpio = require('onoff').Gpio;
 
 const probe = new Gpio(5, 'low');
 let isHigh = false;
-let startTime = new Date().getTime();
+let startTime;
 let endTime;
 
 setInterval(() => {
+    startTime = new Date().getTime();
     probe.setDirection('in');
 
     while (!isHigh) {
