@@ -25,7 +25,7 @@ setInterval(() => {
     probe.setDirection('out');
     probe.writeSync(0);
 
-}, 4000);
+}, 100);
 
 
 
