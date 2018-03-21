@@ -21,7 +21,8 @@ setInterval(() => {
 
     console.log(endTime - startTime); // ms
 
-    probe.direction('low');
+    probe.setDirection('out');
+    probe.writeSync(0);
 
 }, 100);
 
