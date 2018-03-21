@@ -9,6 +9,7 @@ let endTime;
 
 setInterval(() => {
     startTime = new Date();
+    isHigh = false;
     probe.setDirection('in');
 
     while (!isHigh) {
