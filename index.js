@@ -2,7 +2,7 @@
 
 const Gpio = require('onoff').Gpio;
 
-const probe = new Gpio(5, 'low', 'rising');
+const probe = new Gpio(5, 'low', 'falling');
 let isHigh = false;
 let startTime;
 let endTime;
