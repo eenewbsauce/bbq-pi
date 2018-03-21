@@ -8,14 +8,15 @@ let startTime;
 let endTime;
 
 setInterval(() => {
-    startTime = new Date().getTime();
+    startTime = new Date();
     probe.setDirection('in');
 
     while (!isHigh) {
         isHigh = probe.readSync();
 
         if (isHigh) {
-            endTime = new Date().getTime();
+            console.log('High!!!');
+            endTime = new Date();
         }
     }
 
