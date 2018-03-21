@@ -1,19 +1,26 @@
 const Gpio = require('onoff').Gpio;
-const led = new Gpio(14, 'out');
-// const button = new Gpio(4, 'in', 'both');
 
-led.writeSync(1);
- 
-// button.watch(function(err, value) {
-// });
-// const Reader = require('./lib/gpio/reader')
-// const reader = new Reader(14);
+const probe = new Gpio(5, 'low');
+let isHigh = false;
+let startTime = new Date().getTime();
+let endTime;
 
-// reader.on()
-//     .then((value) => {
-//         console.log(value);
-//     })
+setInterval(() => {
+    probe.setDirection('in');
 
-// reader.pin.writeSync(true);
+    while (!isHigh) {
+        isHigh = probe.readSync();
+
+        if (isHigh) {
+            endTime = new Date().getTime();
+        }
+    }
+
+    console.log(endTime - startTime); // ms
+
+    probe.direction('low');
+
+}, 100);
+
 
 
