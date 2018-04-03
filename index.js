@@ -1,31 +1,11 @@
 'use strict';
 
-const Gpio = require('onoff').Gpio;
+const { Probe } = require('./lib/thermometers');
 
-const probe = new Gpio(5, 'low', 'both');
-let isHigh = false;
-let startTime;
-let endTime;
+const thermometer1 = new Probe(5);
 
-setInterval(() => {
-    startTime = new Date();
-    isHigh = false;
-    probe.setDirection('in');
-
-    while (!isHigh) {
-        isHigh = probe.readSync();
-
-        if (isHigh) {
-            endTime = new Date();
-        }
-    }
-
-    console.log(endTime - startTime); // ms
-
-    probe.setDirection('out');
-    probe.writeSync(0);
-
-}, 4000);
-
-
-
+thermometer1
+    .start()
+    .on(`5:value`, (value) => {
+        console.log(value)
+    });
