@@ -1,21 +1,19 @@
 'use strict';
 
-const Probe = require('./lib/thermometers').Probe;
-const { temperature } = require('./lib/math');
+const { ControlProbe, Probe } = require('./lib/thermometers');
 
 const thermometer1 = new Probe(5);
 
 thermometer1
     .start()
-    .on(`value`, (time) => {
-        console.log(`temp 1: ${ temperature.convertTimeToFarenheit(time) } F`);
+    .on(`value`, (temp) => {
+        console.log(`temp 1: ${ temp } F`);
     });
 
-const thermometer2 = new Probe(6);
+const fan = new ControlProbe(6, 12, 60);
 
-thermometer2
-    .start()
-    .on(`value`, (time) => {
-        console.log(`temp 2: ${ temperature.convertTimeToFarenheit(time) } F`);
+fan
+    .on(`value`, (temp) => {
+        console.log(`temp 2: ${ temp } F`);
     });
 
