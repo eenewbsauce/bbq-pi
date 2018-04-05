@@ -10,7 +10,7 @@ thermometer1
         console.log(`temp 1: ${ temp } F`);
     });
 
-const fan = new ControlProbe(6, 12, 60);
+const fan = new ControlProbe(6, 16, 60);
 
 fan
     .on(`value`, (temp) => {
